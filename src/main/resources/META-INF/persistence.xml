@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="PW-2021-1-Trabalho2-WebPU" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <jta-data-source>jdbc/PW-2021-1-Trabalho2</jta-data-source>
+    <class>br.edu.ifsul.model.Aluguel</class>
+    <class>br.edu.ifsul.model.Condominio</class>
+    <class>br.edu.ifsul.model.Locatario</class>
+    <class>br.edu.ifsul.model.Mensalidades</class>
+    <class>br.edu.ifsul.model.Pessoa</class>
+    <class>br.edu.ifsul.model.Recurso</class>
+    <class>br.edu.ifsul.model.UnidadeCondominial</class>
+    <properties>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
+    </properties>
+  </persistence-unit>
+</persistence>
