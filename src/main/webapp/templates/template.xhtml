@@ -7,7 +7,7 @@
     <h:head>
         <title><ui:insert name="titulo"></ui:insert></title>
         <h:outputStylesheet library="css" name="estilos.css"/>
-        <h:outputScript library="js" name="scripts.jp"/>
+        <h:outputScript library="js" name="scripts.js"/>
     </h:head>
     <h:body>
         <h:form id="formMenu" prependId="false">
@@ -22,7 +22,17 @@
                                         value="Manutenção de pessoa"
                                         ajax="false"/>
                             
+                            <p:menuitem action="#{controleLocatario.listar()}"
+                                        value="Manutenção de locatario"
+                                        ajax="false"/>
                           
+                            <p:menuitem action="#{controleRecurso.listar()}"
+                                        value="Manutenção de recurso"
+                                        ajax="false"/>
+                            
+                            <p:menuitem action="#{controleCondominio.listar()}"
+                                        value="Manutenção de condominio"
+                                        ajax="false"/>
                         </p:submenu>
                         
                       
