@@ -26,8 +26,7 @@ public class ControleLocatario implements Serializable {
     @EJB
     private LocatarioDAO<Locatario> dao;
     private Locatario objeto;
-    @EJB
-    private PessoaDAO<Pessoa> daoPessoa;
+   
 
     public ControleLocatario() {
 
@@ -106,18 +105,6 @@ public class ControleLocatario implements Serializable {
         this.objeto = objeto;
     }
 
-    /**
-     * @return the daoPessoa
-     */
-    public PessoaDAO<Pessoa> getDaoPessoa() {
-        return daoPessoa;
-    }
-
-    /**
-     * @param daoPessoa the daoPessoa to set
-     */
-    public void setDaoPessoa(PessoaDAO<Pessoa> daoPessoa) {
-        this.daoPessoa = daoPessoa;
-    }
+  
 
 }

@@ -32,6 +32,23 @@
                     <p:column headerText="Telefone do Trabalho">
                         <p:outputLabel value="#{obj.telefoneTrabalho}"/>
                     </p:column>
+                    
+                    <p:column headerText="Nome">
+                        <p:outputLabel value="#{obj.nome}"/>  
+                    </p:column>
+                    
+                    <p:column headerText="CPF">
+                        <p:outputLabel value="#{obj.cpf}"/>
+                    </p:column>
+                    
+                    <p:column headerText="Telefone">
+                        <p:outputLabel value="#{obj.telefone}"/>
+                    </p:column>
+                    
+                    <p:column headerText="Email">
+                        <p:outputLabel value="#{obj.email}"/>
+                    </p:column>
+                    
 
                     <p:column headerText="ID">
                         <p:outputLabel value="#{obj.id}"/>
@@ -77,34 +94,45 @@
                             <p:inputText value="#{controleLocatario.objeto.id}"
                                          size="5" readonly="true"/>
 
-                            <p:outputLabel value="Nome" for="txtNome"/>
-                            <p:inputText id="txtNome"
+                            <p:outputLabel value="Local de Trabalho" for="txtLocalTrabalho"/>
+                            <p:inputText id="txtLocalTrabalho"
                                          value="#{controleLocatario.objeto.localTrabalho}"
                                          size="100" maxlength="100"
                                          placeholder="Obrigatório"/>
 
-                            <p:outputLabel value="CPF" for="txtCPF"/>
-                            <p:inputText id="txtCPF" 
+                            <p:outputLabel value="Renda" for="txtRenda"/>
+                            <p:inputText id="txtRenda" 
                                          value="#{controleLocatario.objeto.renda}"
                                          size="14" maxlength="14"/>
 
 
-                            <p:outputLabel value="Telefone" for="txtTelefone"/>
-                            <p:inputText id="txtTelefone" 
+                            <p:outputLabel value="Telefone do Trabalho" for="txtTelefoneTrabalho"/>
+                            <p:inputText id="txtTelefoneTrabalho" 
                                          value="#{controleLocatario.objeto.telefoneTrabalho}"
                                          size="15" maxlength="15"/>
+                            
+                             <p:outputLabel value="Nome" for="txtNome"/>
+                            <p:inputText id="txtNome"
+                                value="#{controleLocatario.objeto.nome}"
+                                size="50" maxlength="50"
+                                placeholder="Obrigatório"/>
+                            
+                            <p:outputLabel value="CPF" for="txtCPF"/>
+                            <p:inputText id="txtCPF" 
+                                value="#{controleLocatario.objeto.cpf}"
+                                size="14" maxlength="14"/>
+                            
+                            
+                            <p:outputLabel value="Telefone" for="txtTelefone"/>
+                            <p:inputText id="txtTelefone" 
+                                value="#{controleLocatario.objeto.telefone}"
+                                size="15" maxlength="15"/>
+                            
+                             <p:outputLabel value="Email" for="txtEmail"/>
+                            <p:inputText id="txtEmail" 
+                                value="#{controleLocatario.objeto.email}"
+                                size="50" maxlength="50"/>
 
-                         <!--   <p:outputLabel value="Pessoa" for="selectPessoa"/>
-                            <p:selectOneMenu value="#{controleLocatario.objeto.Pessoa}"
-                                             id="selectPessoa"
-                                             filter="true"
-                                             filterMatchMode="startsWith">
-                                <f:converter binding="#{controlePessoa}"/>
-                                <f:selectItems value="#{controleLocatario.daoPessoa.listaTodos}"
-                                               var="loc" itemLabel="#{loc.id}"/>
-                                
-                                               
-                            </p:selectOneMenu>-->
                           
 
                         </p:panelGrid>
