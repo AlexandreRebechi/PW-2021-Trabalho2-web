@@ -43,7 +43,7 @@ public class ControlePessoa implements Serializable {
         try{
          objeto = dao.localizar(id);   
         }catch(Exception e){
-            Util.mesagemInformacao("Erro ao recuperar objeto: "+Util.getMenssagemErro(e));
+            Util.mesagemInformacao("Erro ao recuperar objeto: "+Util.getMensagemErro(e));
         }
     
     }
@@ -53,7 +53,7 @@ public class ControlePessoa implements Serializable {
          dao.remove(objeto);
          Util.mesagemInformacao("Objeto removido com sucesso");
         }catch(Exception e){
-            Util.mesagemInformacao("Erro ao remover objeto: "+Util.getMenssagemErro(e));
+            Util.mesagemInformacao("Erro ao remover objeto: "+Util.getMensagemErro(e));
         }
     
     }
@@ -66,7 +66,7 @@ public class ControlePessoa implements Serializable {
         }
          Util.mesagemInformacao("Objeto persistido com sucesso!");
         }catch(Exception e){
-            Util.mesagemInformacao("Erro ao salvar objeto: "+Util.getMenssagemErro(e));
+            Util.mesagemInformacao("Erro ao salvar objeto: "+Util.getMensagemErro(e));
         }
 
     }

@@ -38,6 +38,15 @@
                       
                       
                     </p:column>
+                    <p:column>
+                        <p:submenu label="Aluguel">
+                            <p:menuitem action="#{controleAluguel.listar()}"
+                                        value="Manutenção de Aluguel"
+                                        ajax="false"/>
+                            
+                        </p:submenu>
+                            
+                    </p:column>
                 </p:submenu>
             </p:megaMenu>
         </h:form>

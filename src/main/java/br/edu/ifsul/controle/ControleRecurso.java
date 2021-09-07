@@ -6,10 +6,11 @@
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.dao.RecursoDAO;
-import br.edu.ifsul.dao.PessoaDAO;
+
 import br.edu.ifsul.model.Recurso;
-import br.edu.ifsul.model.Pessoa;
+
 import br.edu.ifsul.util.Util;
+
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
@@ -26,8 +27,8 @@ public class ControleRecurso implements Serializable {
     @EJB
     private RecursoDAO<Recurso> dao;
     private Recurso objeto;
-    
 
+    
     public ControleRecurso() {
 
     }
@@ -41,41 +42,40 @@ public class ControleRecurso implements Serializable {
         objeto = new Recurso();
 
     }
-    
-     public void alterar(Object id) {
-        try{
-         objeto = dao.localizar(id);   
-        }catch(Exception e){
-            Util.mesagemInformacao("Erro ao recuperar objeto: "+Util.getMenssagemErro(e));
-        }
-    
-    }
-       public void excluir(Object id) {
-        try{
-         objeto = dao.localizar(id);
-         dao.remove(objeto);
-         Util.mesagemInformacao("Objeto removido com sucesso");
-        }catch(Exception e){
-            Util.mesagemInformacao("Erro ao remover objeto: "+Util.getMenssagemErro(e));
-        }
-    
-    }
-       public void salvar() {
-        try{
-        if(objeto.getId() == null){
-            dao.persist(objeto);
-        }else{
-            dao.merge(objeto);
-        }
-         Util.mesagemInformacao("Objeto persistido com sucesso!");
-        }catch(Exception e){
-            Util.mesagemInformacao("Erro ao salvar objeto: "+Util.getMenssagemErro(e));
+
+    public void alterar(Object id) {
+        try {
+            objeto = dao.localizar(id);
+        } catch (Exception e) {
+            Util.mesagemInformacao("Erro ao recuperar objeto: " + Util.getMensagemErro(e));
         }
 
     }
-       
-     
-    
+
+    public void excluir(Object id) {
+        try {
+            objeto = dao.localizar(id);
+            dao.remove(objeto);
+            Util.mesagemInformacao("Objeto removido com sucesso");
+        } catch (Exception e) {
+            Util.mesagemInformacao("Erro ao remover objeto: " + Util.getMensagemErro(e));
+        }
+
+    }
+
+    public void salvar() {
+        try {
+            if (objeto.getId() == null) {
+                dao.persist(objeto);
+            } else {
+                dao.merge(objeto);
+            }
+            Util.mesagemInformacao("Objeto persistido com sucesso!");
+        } catch (Exception e) {
+            Util.mesagemInformacao("Erro ao salvar objeto: " + Util.getMensagemErro(e));
+        }
+
+    }
 
     /**
      * @return the dao
@@ -104,7 +104,5 @@ public class ControleRecurso implements Serializable {
     public void setObjeto(Recurso objeto) {
         this.objeto = objeto;
     }
-
-   
 
 }

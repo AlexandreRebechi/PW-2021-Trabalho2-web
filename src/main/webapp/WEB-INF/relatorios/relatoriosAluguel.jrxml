@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatoriosAluguel" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="614f9f77-e6cd-4a3b-a477-2d3d91f7c0a9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DadosAluguel.xml"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="unidadeCondominial" class="br.edu.ifsul.model.UnidadeCondominial">
+		<fieldDescription><![CDATA[unidadeCondominial]]></fieldDescription>
+	</field>
+	<field name="fimContrato" class="java.util.Calendar">
+		<fieldDescription><![CDATA[fimContrato]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="locatario" class="br.edu.ifsul.model.Locatario">
+		<fieldDescription><![CDATA[locatario]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="inicioContrato" class="java.util.Calendar">
+		<fieldDescription><![CDATA[inicioContrato]]></fieldDescription>
+	</field>
+	<field name="diaVencimento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[diaVencimento]]></fieldDescription>
+	</field>
+	<field name="listMensalidades" class="java.util.List">
+		<fieldDescription><![CDATA[listMensalidades]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="82ddd824-800a-4c3a-842c-31b599b05d2c"/>
+				<textElement textAlignment="Center">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Relatorio Aluguel]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="87" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="87" forecolor="#000005" backcolor="#5768FA" uuid="27c7f960-3a2a-48ab-a47c-52d384fa6dd0"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="80" y="0" width="70" height="30" uuid="c499f5ff-230e-49a4-a1b5-5e12fef2b542">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71ad420f-9cb1-4442-8370-2e7897c7d748"/>
+				</reportElement>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="30" height="30" uuid="08821158-865b-4ce3-891f-edfa6182355a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1a5229c-9e7d-4a50-b361-18a7e5c62bdc"/>
+				</reportElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="30" uuid="d65b6cf3-eb9c-4cda-88f0-6680ea74eb8b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fadf3db5-2189-4ca9-b74e-e639a40e9558"/>
+				</reportElement>
+				<text><![CDATA[inicioContrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="30" uuid="643dcc3e-f3f3-4d2b-ba8a-c679fa0b52e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb4f936a-ea9c-4cdb-b3bc-594a1e2894ea"/>
+				</reportElement>
+				<text><![CDATA[fimContrato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="100" height="30" uuid="f336029a-853c-4420-a4f2-732c5b508d8c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cd2b2f5-80f9-43f3-b437-054eb973ec02"/>
+				</reportElement>
+				<text><![CDATA[diaVencimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="130" uuid="7cb490d1-7dbd-4f0c-ba35-53605b3719cd"/>
+			</rectangle>
+			<textField>
+				<reportElement x="80" y="0" width="70" height="30" uuid="6e87e855-ca5b-4412-bb69-e662c8985572">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71ad420f-9cb1-4442-8370-2e7897c7d748"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="0" width="30" height="30" uuid="4a7ef8e3-8f65-46ce-927e-16e73f286e6b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1a5229c-9e7d-4a50-b361-18a7e5c62bdc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="180" y="0" width="100" height="30" uuid="17a243ea-6c8c-413c-8da5-e851e29d1954">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fadf3db5-2189-4ca9-b74e-e639a40e9558"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{inicioContrato}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="310" y="0" width="100" height="30" uuid="3515b624-8969-4913-bf8e-9763cc2a06f6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb4f936a-ea9c-4cdb-b3bc-594a1e2894ea"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{fimContrato}.getTime()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="100" height="30" uuid="a37afc47-48f8-48dc-8d90-f77fc0992a51">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cd2b2f5-80f9-43f3-b437-054eb973ec02"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{diaVencimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="90" width="100" height="30" uuid="630eb551-b4c3-4441-844e-d1c98371af43">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da0b4474-2221-47d0-aad7-5475f445edb8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{unidadeCondominial}.getNumero()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="30" uuid="ae234e58-e7cf-4c34-b838-b9b5a8b5bfa6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da0b4474-2221-47d0-aad7-5475f445edb8"/>
+				</reportElement>
+				<text><![CDATA[unidadeCondominial]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="100" width="100" height="30" uuid="0e6b8659-37fd-40a7-a666-c22584606770">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af5d1a3e-364c-4300-b3b0-b1d18c5391b2"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{locatario}.getNome()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="180" y="40" width="100" height="30" uuid="022f8d36-7d79-4e2e-b209-c99b1833ce74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="af5d1a3e-364c-4300-b3b0-b1d18c5391b2"/>
+				</reportElement>
+				<text><![CDATA[locatario]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="63" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="42" uuid="81056298-3371-4d75-9b95-5c2a4a0ce771"/>
+			</rectangle>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="140" y="6" width="100" height="30" uuid="3e32df04-00e3-4d5c-a489-95ea0c61c4f0"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="6" width="100" height="30" uuid="1d3bc4b1-8a45-4bbd-ae53-58388de2c051"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="380" y="6" width="100" height="30" uuid="79c50f2d-b18a-403f-97df-35c4e97f2bc0"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

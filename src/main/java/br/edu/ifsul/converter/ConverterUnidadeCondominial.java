@@ -5,7 +5,7 @@
  */
 package br.edu.ifsul.converter;
 
-import br.edu.ifsul.model.Pessoa;
+import br.edu.ifsul.model.UnidadeCondominial;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
@@ -19,9 +19,9 @@ import javax.persistence.PersistenceContext;
  *
  * @author Antonio
  */
-@Named(value = "converterPessoa")
+@Named(value = "converterUnidadeCondominial")
 @RequestScoped
-public class ConverterPessoa implements Serializable, Converter{
+public class ConverterUnidadeCondominial implements Serializable, Converter{
 
     @PersistenceContext(unitName = "PW-2021-1-Trabalho2-WebPU")
     protected EntityManager em;
@@ -34,7 +34,7 @@ public class ConverterPessoa implements Serializable, Converter{
               return null;
             
         }
-        return em.find(Pessoa.class, Integer.parseInt(string));
+        return em.find(UnidadeCondominial.class, Integer.parseInt(string));
       
     }
     
@@ -45,7 +45,7 @@ public class ConverterPessoa implements Serializable, Converter{
         if(t == null){
             return null;
         }
-        Pessoa obj = (Pessoa) t;
+        UnidadeCondominial obj = (UnidadeCondominial) t;
         return obj.getId().toString();
         
     }

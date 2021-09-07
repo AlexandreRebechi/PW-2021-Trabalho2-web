@@ -5,8 +5,10 @@
  */
 package br.edu.ifsul.dao;
 
+import br.edu.ifsul.converter.ConverterOrdem;
 import br.edu.ifsul.model.Condominio;
 import br.edu.ifsul.model.Recurso;
+
 import java.io.Serializable;
 import javax.ejb.Stateful;
 
@@ -20,6 +22,14 @@ public class CondominioDAO<TIPO> extends DAOGenerico<Condominio> implements Seri
     public CondominioDAO() {
         super();
         classePersistente = Condominio.class;
+        //definir as ordens possíveis
+        listaOrdem.add(new Ordem("id", "ID", "="));
+        listaOrdem.add(new Ordem("nome", "Nome", "like"));
+        //definir a ordem inicial
+        ordemAtual = listaOrdem.get(1);
+        // inicializar o conversor das ordens
+        converterOrdem = new ConverterOrdem();
+        converterOrdem.setListaOrdem(listaOrdem);
     }
     
     

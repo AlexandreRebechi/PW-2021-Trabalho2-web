@@ -45,7 +45,7 @@ public class DAOGenerico<TIPO> implements Serializable {
     public List<TIPO> getListaObjetos() {
 
         String jpql = "from " + classePersistente.getSimpleName();
-        String where="";
+        String where= "";
         filtro = filtro.replaceAll("[';-]", "");
         if(filtro.length() >0){
             switch(ordemAtual.getOperador()){
@@ -68,7 +68,7 @@ public class DAOGenerico<TIPO> implements Serializable {
             }
         }
         jpql += where;
-        jpql += " order by "+ordemAtual.getAtributo();
+        jpql += " order by " + ordemAtual.getAtributo();
         System.out.println("JPQL: " + jpql);
         totalObjetos = em.createQuery(jpql).getResultList().size();
         

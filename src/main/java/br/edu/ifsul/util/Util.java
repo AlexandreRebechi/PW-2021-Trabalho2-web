@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
  */
 public class Util {
     
-   public static String getMenssagemErro(Exception e){
+   public static String getMensagemErro(Exception e){
        
        while(e.getCause() != null){
            e = (Exception) e.getCause();
