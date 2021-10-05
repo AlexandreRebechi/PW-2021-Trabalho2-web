@@ -6,9 +6,15 @@
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.dao.CondominioDAO;
+import br.edu.ifsul.dao.PessoaDAO;
 import br.edu.ifsul.model.Condominio;
+import br.edu.ifsul.model.Pessoa;
+import br.edu.ifsul.model.UnidadeCondominial;
+import br.edu.ifsul.model.UnidadeCondominial;
 import br.edu.ifsul.util.Util;
+import br.edu.ifsul.util.UtilRelatorios;
 import java.io.Serializable;
+import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -23,13 +29,20 @@ public class ControleCondominio implements Serializable {
 
     @EJB
     private CondominioDAO<Condominio> dao;
-    private Condominio objeto;
     
+    @EJB
+    private PessoaDAO<Pessoa> daoPessoa;
+    private Condominio objeto;
+    private UnidadeCondominial unidadeCondominial;
+    private Boolean novaUnidadeCondominial;
 
     public ControleCondominio() {
 
     }
-
+ public void imprimeCondominio(){
+        HashMap parametros = new HashMap();
+        UtilRelatorios.imprimeRelatorio("relatoriosCondominio", parametros, dao.getListaTodos());
+    }
     public String listar() {
         return "/privado/condominio/listar?faces-redirect=true";
     }
@@ -71,6 +84,28 @@ public class ControleCondominio implements Serializable {
         }
 
     }
+    
+       public void novaUnidadeCondominial(){
+        unidadeCondominial = new UnidadeCondominial();
+        novaUnidadeCondominial = true;
+    }
+     public void alterarUnidadeCondominial(int index){
+        unidadeCondominial = objeto.getUnidadeCondominais().get(index);
+        novaUnidadeCondominial = false;
+    }
+     
+      public void removerUnidadeCondominial(int index){
+       objeto.removerUnidadeCondominial(index);
+         Util.mesagemInformacao("Unidade condominial removida com sucesso!");
+       
+    }
+     
+     public void salvarUnidadeCondominial(){
+        if(novaUnidadeCondominial){
+            objeto.adicionarUnidadeCondominial(unidadeCondominial);
+        }
+        Util.mesagemInformacao("Unidade condominial adicionada ou alterada com sucesso!");
+    }
        
      
     
@@ -101,6 +136,48 @@ public class ControleCondominio implements Serializable {
      */
     public void setObjeto(Condominio objeto) {
         this.objeto = objeto;
+    }
+
+    /**
+     * @return the unidadeCondominial
+     */
+    public UnidadeCondominial getUnidadeCondominial() {
+        return unidadeCondominial;
+    }
+
+    /**
+     * @param unidadeCondominial the unidadeCondominial to set
+     */
+    public void setUnidadeCondominial(UnidadeCondominial unidadeCondominial) {
+        this.unidadeCondominial = unidadeCondominial;
+    }
+
+    /**
+     * @return the novaUnidadeCondominial
+     */
+    public Boolean getNovaUnidadeCondominial() {
+        return novaUnidadeCondominial;
+    }
+
+    /**
+     * @param novaUnidadeCondominial the novaUnidadeCondominial to set
+     */
+    public void setNovaUnidadeCondominial(Boolean novaUnidadeCondominial) {
+        this.novaUnidadeCondominial = novaUnidadeCondominial;
+    }
+
+    /**
+     * @return the daoPessoa
+     */
+    public PessoaDAO<Pessoa> getDaoPessoa() {
+        return daoPessoa;
+    }
+
+    /**
+     * @param daoPessoa the daoPessoa to set
+     */
+    public void setDaoPessoa(PessoaDAO<Pessoa> daoPessoa) {
+        this.daoPessoa = daoPessoa;
     }
 
    

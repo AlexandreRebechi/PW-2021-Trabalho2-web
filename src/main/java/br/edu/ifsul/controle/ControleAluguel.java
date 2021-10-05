@@ -15,7 +15,9 @@ import br.edu.ifsul.model.UnidadeCondominial;
 import br.edu.ifsul.util.Util;
 import br.edu.ifsul.util.UtilRelatorios;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -48,8 +50,21 @@ public class ControleAluguel implements Serializable {
     
     public void imprimeAluguel(){
         HashMap parametros = new HashMap();
-        UtilRelatorios.imprimeRelatorio("relatoriosAluguel", parametros, dao.getListaTodos());
+        UtilRelatorios.imprimeRelatorio("relatoriosAluguel", parametros, dao.getListaCompleta());
     }
+    
+    public void imprimeAluguel(Object id) {
+        try {
+            objeto = dao.localizar(id);
+            List<Aluguel> lista = new ArrayList<>();
+            lista.add(objeto);
+            HashMap parametros = new HashMap();
+            UtilRelatorios.imprimeRelatorio("relatoriosAluguel", parametros, lista);
+        } catch (Exception e) {
+            Util.mesagemErro("Erro ao imprimir relatório: " + Util.getMensagemErro(e));
+        }
+    }
+  
     
     public void novaMesalidade(){
         mensalidades = new Mensalidades();

@@ -10,6 +10,7 @@ import br.edu.ifsul.converter.ConverterOrdem;
 import java.io.Serializable;
 import javax.ejb.Stateful;
 import br.edu.ifsul.model.Aluguel;
+import java.util.List;
 /**
  *
  * @author Antonio
@@ -39,6 +40,11 @@ public class AluguelDAO<TIPO> extends DAOGenerico<Aluguel> implements Serializab
          Aluguel objeto = em.find(Aluguel.class, id);
          objeto.getListMensalidades().size();
         return objeto;
+    }
+   
+   public List<Aluguel> getListaCompleta(){
+        String jpql = "select distinct a from Aluguel a left join fetch a.listMensalidades order by a.id";
+        return em.createQuery(jpql).getResultList();        
     }
 
 }

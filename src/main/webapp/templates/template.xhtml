@@ -11,47 +11,76 @@
     </h:head>
     <h:body>
         <h:form id="formMenu" prependId="false">
+
+
             <p:megaMenu>
                 <p:menuitem value="Início"
                             url="#{facesContext.externalContext.requestContextPath}/index.xhtml"
                             icon="pi pi-home"/>
-                <p:submenu label="Cadastros">
+
+
+
+                <p:submenu label="Cadastros" rendered="#{controleLogin.usuarioAutenticado != null}">
                     <p:column>
                         <p:submenu label="Básicos">
                             <p:menuitem action="#{controlePessoa.listar()}"
                                         value="Manutenção de pessoa"
                                         ajax="false"/>
-                            
+
                             <p:menuitem action="#{controleLocatario.listar()}"
                                         value="Manutenção de locatario"
                                         ajax="false"/>
-                          
+
                             <p:menuitem action="#{controleRecurso.listar()}"
                                         value="Manutenção de recurso"
                                         ajax="false"/>
-                            
+
                             <p:menuitem action="#{controleCondominio.listar()}"
                                         value="Manutenção de condominio"
                                         ajax="false"/>
+
+                            <p:menuitem action="#{controleUsuario.listar()}"
+                                        value="Manutenção de usuario"
+                                        ajax="false"/>
                         </p:submenu>
-                        
-                      
-                      
+
+
+
                     </p:column>
                     <p:column>
                         <p:submenu label="Aluguel">
                             <p:menuitem action="#{controleAluguel.listar()}"
                                         value="Manutenção de Aluguel"
                                         ajax="false"/>
-                            
+
                         </p:submenu>
-                            
+
                     </p:column>
                 </p:submenu>
+
+                <p:submenu label="Usuario: #{controleLogin.usuarioAutenticado != null ?
+                                             controleLogin.usuarioAutenticado.nome : ''}" >
+                    <p:column>
+                        <p:submenu label="Efetuar login"
+                                   rendered="#{controleLogin.usuarioAutenticado == null}">
+                            <p:menuitem action="#{controleLogin.paginaLogin()}"
+                                        value="Login" icon="pi pi-user"
+                                        ajax="false"/>
+                        </p:submenu>
+                        <p:submenu label="Efetuar logout"
+                                   rendered="#{controleLogin.usuarioAutenticado != null}">
+                            <p:menuitem action="#{controleLogin.efetuarLogout()}"
+                                        value="Logout" icon="pi pi-power-off"
+                                        ajax="false"/>
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+
+
             </p:megaMenu>
         </h:form>
         <ui:insert name="conteudo">
-            
+
         </ui:insert>
         <ui:include src="ajaxstatus.xhtml"/>
     </h:body>

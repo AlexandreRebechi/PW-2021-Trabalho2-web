@@ -6,138 +6,89 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:composition template="/templates/template.xhtml">
-        <ui:define name="titulo">Manutenção de Condominio</ui:define>
+        <ui:define name="titulo">Manutenção de Usuarios</ui:define>
         <ui:define name="conteudo">
             <h:form id="formListagem" prependId="false">
                 <p:growl/>
                 <p:commandButton value="Novo"
-                                 action="#{controleCondominio.novo()}"
+                                 actionListener="#{controleUsuario.novo()}"
                                  icon="pi pi-plus"
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
-                
-                
-                  <p:commandButton value="Inprimir"
-                                 action="#{controleCondominio.imprimeAluguel()}"
-                                 icon="pi pi-print"
-                                 ajax="false"
-                                 onclick="this.form.target = '_blank';"/>
                 <div align="center">
                     <p:panelGrid columns="11">
                         <p:outputLabel value="Ordem:"/>
-                        <p:selectOneMenu value="#{controleCondominio.dao.ordemAtual}"
-                                         converter="#{controleCondominio.dao.converterOrdem}">
-
-                            <f:selectItems value="#{controleCondominio.dao.listaOrdem}"
+                        <p:selectOneMenu value="#{controleUsuario.dao.ordemAtual}"
+                                         converter="#{controleUsuario.dao.converterOrdem}">
+                            <f:selectItems value="#{controleUsuario.dao.listaOrdem}"
                                            var="ord" itemValue="#{ord.atributo}"/>
                             <p:ajax update="listagem"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="Filtro:"/>
-                        <p:inputText value="#{controleCondominio.dao.filtro}">
-                            <p:ajax event="blur" update="listagem"/>
-
+                        <p:inputText value="#{controleUsuario.dao.filtro}">
 
                         </p:inputText>
-                        <p:commandButton value="Filtro" update="listagem"/>
+                        <p:commandButton value="Filtrar" update="listagem"/>
                         <p:outputLabel value="Máximo de objetos"/>
-                        <p:selectOneMenu value="#{controleCondominio.dao.maximoObjetos}">
+                        <p:selectOneMenu value="#{controleUsuario.dao.maximoObjetos}">
                             <f:selectItem itemValue="3" itemLabel="3"/>
                             <f:selectItem itemValue="5" itemLabel="5"/>
                             <f:selectItem itemValue="10" itemLabel="10"/>
                             <f:selectItem itemValue="20" itemLabel="20"/>
                             <f:selectItem itemValue="50" itemLabel="50"/>
                             <p:ajax update="listagem"/>
-
-
-
                         </p:selectOneMenu>
-                        <p:commandButton action="#{controleCondominio.dao.primeiro()}"
+                        <p:commandButton action="#{controleUsuario.dao.primeiro()}"
                                          title="Primeiro" update="listagem"
                                          icon="pi pi-step-backward"/>
-                        <p:commandButton action="#{controleCondominio.dao.anterior()}"
+                        <p:commandButton action="#{controleUsuario.dao.anterior()}"
                                          title="Anterior" update="listagem"
-                                         icon="pi pi-chevron-left"/>
-
-                        <p:commandButton action="#{controleCondominio.dao.proximo()}"
-                                         title="Primeiro" update="listagem"
-                                         icon="pi pi-chevron-right"/>
-
-                        <p:commandButton action="#{controleCondominio.dao.ultimo()}"
-                                         title="Primeiro" update="listagem"
-                                         icon="pi pi-step-forward"/>
-
-
+                                         icon="pi pi-chevron-left"/>  
+                        <p:commandButton action="#{controleUsuario.dao.proximo()}"
+                                         title="Proximo" update="listagem"
+                                         icon="pi pi-chevron-right"/>                         
+                        <p:commandButton action="#{controleUsuario.dao.ultimo()}"
+                                         title="Ultimo" update="listagem"
+                                         icon="pi pi-step-forward"/>                        
                     </p:panelGrid>
-
-                </div>
-                
-
-                <p:dataTable value="#{controleCondominio.dao.listaObjetos}" var="obj"
+                </div>               
+                <p:dataTable value="#{controleUsuario.dao.listaObjetos}" var="obj"
                              id="listagem">
-
-
-
-
-
-                    <p:column headerText="ID">
-                        <p:outputLabel value="#{obj.id}"/>
+                    <f:facet name="footer">
+                        <p:outputLabel value="#{controleUsuario.dao.mensagemNavegacao}"/>
+                    </f:facet>                  
+                    <p:column headerText="Nome de usuário">
+                        <p:outputLabel value="#{obj.nomeUsuario}"/>
                     </p:column>
-
-
                     <p:column headerText="Nome">
                         <p:outputLabel value="#{obj.nome}"/>
-                    </p:column>
-
-                    <p:column headerText="Endereço">
-                        <p:outputLabel value="#{obj.endereco}"/>
-                    </p:column>
-
-                    <p:column headerText="Numero">
-                        <p:outputLabel value="#{obj.numero}"/>
-                    </p:column>
-
-
-                    <p:column headerText="CEP">
-                        <p:outputLabel value="#{obj.cep}"/>
-                    </p:column>
-
-
-
-
-
-
-
-
-
+                    </p:column>     
+                    <p:column headerText="Email">
+                        <p:outputLabel value="#{obj.email}"/>
+                    </p:column>  
                     <p:column headerText="Ações">
                         <div align="center">
-                            <p:commandButton actionListener="#{controleCondominio.alterar(obj.id)}"
+                            <p:commandButton actionListener="#{controleUsuario.alterar(obj.nomeUsuario)}"
                                              icon="pi pi-pencil"
                                              title="Editar"
                                              update="formEdicao"
                                              process="@this"
                                              oncomplete="PF('dlg').show();"/>
-
-                            <p:commandButton actionListener="#{controleCondominio.excluir(obj.id)}"
+                            <p:commandButton actionListener="#{controleUsuario.excluir(obj.nomeUsuario)}"
                                              icon="pi pi-trash"
-                                             title="Excluir"
-                                             update="formListagem"
+                                             update="@form"
                                              process="@this"
-                                             onclick="if (!confirm('comfirma a exclusão'))
+                                             onclick="if (!confirm('Confirma a exclusão'))
                                                          return false"/>
-
                         </div>
-
                     </p:column>
-
                 </p:dataTable>
             </h:form>
+
             <ui:include src="formulario.xhtml"/>
            
         </ui:define>
-
-
     </ui:composition>
 </html>
 

@@ -7,9 +7,11 @@
     <class>br.edu.ifsul.model.Condominio</class>
     <class>br.edu.ifsul.model.Locatario</class>
     <class>br.edu.ifsul.model.Mensalidades</class>
+    <class>br.edu.ifsul.model.Permissao</class>
     <class>br.edu.ifsul.model.Pessoa</class>
     <class>br.edu.ifsul.model.Recurso</class>
     <class>br.edu.ifsul.model.UnidadeCondominial</class>
+    <class>br.edu.ifsul.model.Usuario</class>
     <properties>
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
