@@ -95,12 +95,12 @@
                                              process="@this"
                                              oncomplete="PF('dlgMensalidade').show();"/>
                         </f:facet>
-                        
-                        
+
+
                         <p:column headerText="ID">
                             <p:outputLabel value="#{mensalidades.id}"/>
                         </p:column>
-                        
+
                         <p:column headerText="Data do Pagamento">
                             <p:outputLabel value="#{mensalidades.dataPagamento}">
                                 <f:converter converterId="converterCalendar"/>
@@ -110,8 +110,8 @@
                         <p:column headerText="Valor">
                             <p:outputLabel value="#{mensalidades.valor}"/>
                         </p:column>
-                        
-                         <p:column headerText="Valor do Pagamento">
+
+                        <p:column headerText="Valor do Pagamento">
                             <p:outputLabel value="#{mensalidades.valorPagamento}"/>
                         </p:column>
 
@@ -121,7 +121,7 @@
                             </p:outputLabel>
                         </p:column>
 
-  
+
                         <p:column headerText="Ações">
                             <div align="center">
                                 <p:commandButton actionListener="#{controleAluguel.alterarMesalidade(idxMensalidades)}"
@@ -137,7 +137,8 @@
                                                  update="tab:listMensalidades growl"
                                                  process="@this"
                                                  onclick="if (!confirm('comfirma a exclusão'))
-                                                             return false"/>
+                                                             return false"
+                                                 rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
 
                             </div>
                         </p:column>
@@ -209,7 +210,7 @@
 
             </p:panelGrid>
         </h:form>
-      
+
     </p:dialog>
 
 </html>

@@ -16,9 +16,9 @@
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
-                
-                
-                  <p:commandButton value="Inprimir"
+
+
+                <p:commandButton value="Inprimir"
                                  action="#{controleCondominio.imprimeAluguel()}"
                                  icon="pi pi-print"
                                  ajax="false"
@@ -71,7 +71,7 @@
                     </p:panelGrid>
 
                 </div>
-                
+
 
                 <p:dataTable value="#{controleCondominio.dao.listaObjetos}" var="obj"
                              id="listagem">
@@ -125,7 +125,8 @@
                                              update="formListagem"
                                              process="@this"
                                              onclick="if (!confirm('comfirma a exclusão'))
-                                                         return false"/>
+                                                         return false"
+                                             rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
 
                         </div>
 
@@ -134,7 +135,7 @@
                 </p:dataTable>
             </h:form>
             <ui:include src="formulario.xhtml"/>
-           
+
         </ui:define>
 
 

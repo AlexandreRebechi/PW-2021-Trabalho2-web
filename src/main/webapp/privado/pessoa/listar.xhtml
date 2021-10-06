@@ -103,7 +103,8 @@
                                              update="formListagem"
                                              process="@this"
                                              onclick="if (!confirm('comfirma a exclusão'))
-                                                         return false"/>
+                                                         return false"
+                                                         rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
 
                         </div>
 

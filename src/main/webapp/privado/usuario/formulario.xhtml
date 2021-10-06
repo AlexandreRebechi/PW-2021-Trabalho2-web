@@ -77,7 +77,8 @@
                                     actionListener="#{controleUsuario.removerPermissao(per)}"
                                     process="@this"
                                     update="listaPermissoes growl" icon="pi pi-trash"
-                                    title="Remover permissão"/>
+                                    title="Remover permissão"
+                                    rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
                             </div>
                         </p:column>
                     </p:dataTable>

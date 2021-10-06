@@ -41,10 +41,10 @@
                         </p:panelGrid>
                     </div>                    
                 </p:tab>
-                
+
                 <p:tab title="Descricao">
                     <p:textEditor value="#{controleCondominio.unidadeCondominial.descricao}"
-                                          secure="false" height="200"/>
+                                  secure="false" height="200"/>
                 </p:tab>
 
                 <p:tab title="Unidade Condominial">
@@ -75,7 +75,7 @@
                             <p:outputLabel value="#{unidadeCondominais.numeroQuarto}"/>
                         </p:column>
 
-                       
+
 
                         <p:column headerText="Ações">
                             <p:commandButton icon="pi pi-pencil"
@@ -88,7 +88,8 @@
                                              process="@this"
                                              update="tab:listaUnidadeCondominais growl"
                                              onclick="if (!confirm('Confirma a exclusão do Unidade Condominais?'))
-                                                         return false"/>
+                                                         return false"
+                                             rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
                         </p:column>
                     </p:dataTable>
                 </p:tab>                
@@ -127,7 +128,7 @@
                                thousandSeparator="" decimalSeparator="."
                                decimalPlaces="2" size="10"/>
 
-               <p:outputLabel value="Proprietario" for="selectProprietario"/>
+                <p:outputLabel value="Proprietario" for="selectProprietario"/>
                 <p:selectOneMenu value="#{controleCondominio.unidadeCondominial.proprietario}"
                                  id="selectProprietario"
                                  filter="true" filterMatchMode="startsWith">
@@ -138,7 +139,7 @@
                                    var="pro" itemLabel="#{pro.nome}"/>
 
                 </p:selectOneMenu>
-               
+
             </p:panelGrid>
         </h:form>        
     </p:dialog>

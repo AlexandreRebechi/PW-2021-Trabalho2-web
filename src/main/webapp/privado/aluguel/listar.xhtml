@@ -16,7 +16,7 @@
                                  update="formEdicao"
                                  process="@this"
                                  oncomplete="PF('dlg').show();"/>
-                
+
                 <p:commandButton value="Inprimir"
                                  action="#{controleAluguel.imprimeAluguel()}"
                                  icon="pi pi-print"
@@ -117,7 +117,8 @@
                                              update="formListagem"
                                              process="@this"
                                              onclick="if (!confirm('comfirma a exclusão'))
-                                                         return false"/>
+                                                         return false"
+                                             rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
 
                         </div>
 

@@ -21,20 +21,20 @@
                              id="listagem">
 
 
-                    
-                    
+
+
 
                     <p:column headerText="ID">
                         <p:outputLabel value="#{obj.id}"/>
                     </p:column>
-                    
-                    
+
+
                     <p:column headerText="Descrição">
                         <p:outputLabel value="#{obj.descricao}"/>
                     </p:column>
 
 
-           <p:column headerText="Ações">
+                    <p:column headerText="Ações">
                         <div align="center">
                             <p:commandButton actionListener="#{controleRecurso.alterar(obj.id)}"
                                              icon="pi pi-pencil"
@@ -49,7 +49,8 @@
                                              update="formListagem"
                                              process="@this"
                                              onclick="if (!confirm('comfirma a exclusão'))
-                                                         return false"/>
+                                                         return false"
+                                             rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
 
                         </div>
 
