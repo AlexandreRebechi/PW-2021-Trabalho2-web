@@ -101,6 +101,14 @@
                     <p:column headerText="Dia do Vencimento">
                         <p:outputLabel value="#{obj.diaVencimento}"/>
                     </p:column>
+                    
+                    <p:column headerText="Locatario">
+                        <p:outputLabel value="#{obj.locatario.nome}"/>
+                    </p:column>
+                    
+                    <p:column headerText="Proprietario">
+                        <p:outputLabel value="#{obj.unidadeCondominial.proprietario}"/>
+                    </p:column>
 
                     <p:column headerText="Ações">
                         <div align="center">

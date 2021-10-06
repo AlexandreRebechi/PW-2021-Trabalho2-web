@@ -74,6 +74,11 @@
                         <p:column headerText="Numero Quarto">
                             <p:outputLabel value="#{unidadeCondominais.numeroQuarto}"/>
                         </p:column>
+                        
+                        <p:column headerText="Proprietario">
+                            <p:outputLabel value="#{unidadeCondominais.proprietario}"/>
+                        </p:column>
+                        
 
 
 
@@ -132,6 +137,7 @@
                 <p:selectOneMenu value="#{controleCondominio.unidadeCondominial.proprietario}"
                                  id="selectProprietario"
                                  filter="true" filterMatchMode="startsWith">
+                    
                     <f:converter binding="#{converterPessoa}"/>
                     <f:selectItem itemLabel="Selecione um registro"
                                   noSelectionOption="true"/>
