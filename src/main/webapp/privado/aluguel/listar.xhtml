@@ -127,6 +127,13 @@
                                              onclick="if (!confirm('comfirma a exclusão'))
                                                          return false"
                                              rendered="#{p:ifGranted('ADMINISTRADOR')}"/>
+                            
+                            
+                             <p:commandButton title="Imprimir"
+                                              action="#{controleAluguel.imprimeAluguel(obj.id)}"
+                                 icon="pi pi-print"
+                                 ajax="false"
+                                 onclick="this.form.target = '_blank';"/>  
 
                         </div>
 
